@@ -15,9 +15,8 @@ body {
     background: url('bg.jpg') no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
-
-
 
 .wrapper {
     width: 370px;
@@ -25,12 +24,12 @@ body {
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color:orangered;
+    color: orangered;
     border-radius: 10px;
     padding: 30px 30px 38px;
-margin-left: auto;
-    margin-right: auto;
-position:relative;
+    margin: auto;
+    position: relative;
+    z-index: 2; /* Ensure it stays above the girl image */
 }
 
 .wrapper h1 {
@@ -58,7 +57,7 @@ position:relative;
 }
 
 .input-box input::placeholder {
-    color:orangered;
+    color: orangered;
 }
 
 .wrapper .remember-forgot {
@@ -69,7 +68,7 @@ position:relative;
 }
 
 .remember-forgot label input {
-    accent-color:orangered;
+    accent-color: orangered;
     margin-right: 3px;
 }
 
@@ -80,12 +79,13 @@ position:relative;
 
 .remember-forgot a:hover {
     text-decoration: underline;
+    color: white;
 }
 
 .wrapper .btn {
     width: 100%;
     height: 45px;
-    background:orangered;
+    background: orangered;
     border: none;
     outline: none;
     border-radius: 40px;
@@ -110,27 +110,98 @@ position:relative;
 
 .register-link p a:hover {
     text-decoration: underline;
+    color: white;
 }
-.girl{
-    height: 400px;
+
+.girl {
+    height: 300px;
     width: 300px;
-    background-image: url('girl.png');
+    position: absolute;
+    background: url('/mnt/data/girl.png') no-repeat;
     background-size: contain;
-    background-position: center;
-    background-repeat: repeat-x;
+    animation: moveRightLeft 7s linear infinite;
+    bottom: 160px;
+    left: -300px; /* Start off-screen to the left */
     z-index: 1;
-    animation: girl 5s linear infinite ;
+ transform: rotateX(180deg);
 }
-@keyframes girl{
 
-    
-  100%{
-        transform: translateX(-3400px);
+.leaf {
+    position: absolute;
+    z-index: 1;
+    animation: leaf 15s linear infinite;
+}
+
+.leaf1 {
+    background-image: url('leaf1.png');
+    top: 10px;
+    left: 50px;
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.leaf2 {
+    background-image: url('leaf2.png');
+    top: 150px;
+    right: 50px;
+    height: 70px;
+    width: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.leaf3 {
+    background-image: url('leaf3.png');
+    bottom: 50px;
+    left: 50px;
+    height: 60px;
+    width: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.leaf4 {
+    background-image: url('leaf4.png');
+    bottom: 100px;
+    right: 50px;
+    height: 80px;
+    width: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@keyframes leaf {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
     }
-
+    100% {
+        transform: translateY(800px) rotate(720deg);
+        opacity: 0;
+    }
 }
 
+@keyframes moveRightLeft 
+{
 
+  from, 50% {
+    transform: translateX(calc(100vw + 300px)) scaleX(1);   }
+ 
+ to {
+    transform: translateX(-100%) scaleX(1);  }
+}
+.trees {
+ 
+ position: absolute; 
+top: 0; 
 
+  left: 0;
+ width: 100%; 
 
-
+  height: 100vh;   
+z-index: 2; 
+  
+object-fit: cover;
+}
