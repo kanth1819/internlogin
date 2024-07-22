@@ -60,6 +60,7 @@ body {
     color: orangered;
 }
 
+
 .wrapper .remember-forgot {
     display: flex;
     justify-content: space-between;
@@ -128,7 +129,7 @@ body {
 
 .leaf {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     animation: leaf 15s linear infinite;
 }
 
